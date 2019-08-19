@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page isELIgnored="false" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -12,6 +13,8 @@
     <title>itemsList.jsp</title>
 </head>
 <body>
+
+${itemsList}
 
     <form action="${pageContext.request.contextPath}/items/queryItems.action" method="post">
         <table border="1" cellspacing="0" width="100%">
