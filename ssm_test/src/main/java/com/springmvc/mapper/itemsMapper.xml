@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.springmvc.dao.ItemsMapper">
+
+	<resultMap id="ItemsResultMap" type="com.springmvc.entity.Items" >
+		<id column="ID" property="id" jdbcType="VARCHAR" />
+		<result column="NAME" property="name" jdbcType="VARCHAR" />
+		<result column="PRICE" property="price" jdbcType="VARCHAR" />
+		<result column="DETAIL" property="detail" jdbcType="VARCHAR" />
+	</resultMap>
+
+	<sql id="query_items_where">
+		<if test="id != null and id != ''">
+			and id = #{id,jdbcType=VARCHER}
+		</if>
+		<if test="name != null and name != ''">
+			and name like "%"#{name,jdbcType=VARCHER}"%"
+		</if>
+	</sql>
+
+	<select id="queryItems" parameterType="com.springmvc.entity.Items" resultMap="ItemsResultMap">
+		select * from items
+		<where>
+			<include refid="query_items_where"/>
+		</where>
+	</select>
+
+
+</mapper>
