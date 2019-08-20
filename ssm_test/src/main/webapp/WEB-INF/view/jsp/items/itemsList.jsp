@@ -20,6 +20,7 @@
                 <td>名称</td>
                 <td>价格</td>
                 <td>信息</td>
+                <td>操作</td>
             </tr>
 
             <c:forEach items="${itemsList}" var="item">
@@ -27,6 +28,7 @@
                     <td>${item.name}</td>
                     <td>${item.price}</td>
                     <td>${item.detail}</td>
+                    <td><a href="${pageContext.request.contextPath}/items/queryItemsById?id=${item.id}">修改</a></td>
                 </tr>
             </c:forEach>
 

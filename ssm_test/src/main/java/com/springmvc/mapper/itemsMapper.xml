@@ -5,25 +5,54 @@
 	<resultMap id="ItemsResultMap" type="com.springmvc.entity.Items" >
 		<id column="ID" property="id" jdbcType="VARCHAR" />
 		<result column="NAME" property="name" jdbcType="VARCHAR" />
-		<result column="PRICE" property="price" jdbcType="VARCHAR" />
+		<result column="PRICE" property="price" jdbcType="DECIMAL" />
 		<result column="DETAIL" property="detail" jdbcType="VARCHAR" />
 	</resultMap>
 
+	<sql id="Base_Column_List">
+		ID, NAME, PRICE, DETAIL
+	</sql>
+
 	<sql id="query_items_where">
 		<if test="id != null and id != ''">
-			and id = #{id,jdbcType=VARCHER}
+			and ID = #{id,jdbcType=VARCHER}
 		</if>
 		<if test="name != null and name != ''">
-			and name like "%"#{name,jdbcType=VARCHER}"%"
+			and NAME like "%"#{name,jdbcType=VARCHER}"%"
 		</if>
 	</sql>
 
 	<select id="queryItems" parameterType="com.springmvc.entity.Items" resultMap="ItemsResultMap">
-		select * from items
+		select
+		<include refid="Base_Column_List" />
+	 	from items
 		<where>
 			<include refid="query_items_where"/>
 		</where>
 	</select>
+
+	<select id="queryItemsById" parameterType="com.springmvc.entity.Items" resultType="com.springmvc.entity.Items">
+		select
+		<include refid="Base_Column_List" />
+		from items
+		where ID = #{id,jdbcType=VARCHAR}
+	</select>
+
+	<update id="updateItemById" parameterType="com.springmvc.entity.Items">
+		update items
+		<set >
+			<if test="name != null and name != ''" >
+				NAME = #{name,jdbcType=VARCHAR},
+			</if>
+			<if test="price != null and price != ''" >
+				PRICE = #{price,jdbcType=DECIMAL},
+			</if>
+			<if test="detail != null and detail != ''" >
+				DETAIL = #{detail,jdbcType=VARCHAR},
+			</if>
+		</set>
+		where ID = #{id,jdbcType=VARCHAR}
+	</update>
 
 
 </mapper>

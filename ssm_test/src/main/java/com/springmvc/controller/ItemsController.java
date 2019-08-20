@@ -18,14 +18,31 @@ public class ItemsController{
 
     @RequestMapping(value = "/queryItems")
     public ModelAndView queryItems(){
-
         List<Items> itemsList = itemsService.queryItems(null);
-
         //反回 ModelAndView
         ModelAndView modelAndView = new ModelAndView();
         //相当于request的setAttribut
         modelAndView.addObject("itemsList",itemsList);
         //指定视图
+        modelAndView.setViewName("items/itemsList");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/queryItemsById")
+    public ModelAndView queryItemsById(){
+        Items items = new Items();
+        items.setId("1");
+        Items item = itemsService.queryItemsById(items);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("item",item);
+        modelAndView.setViewName("items/editItem");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/updateItemById")
+    public ModelAndView updateItemById(){
+        int i = itemsService.updateItemById(null);
+        ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("items/itemsList");
         return modelAndView;
     }

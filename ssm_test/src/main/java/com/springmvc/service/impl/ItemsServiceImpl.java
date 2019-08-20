@@ -17,4 +17,15 @@ public class ItemsServiceImpl implements ItemsService {
     public List<Items> queryItems(Items items) {
         return itemsMapper.queryItems(items);
     }
+
+    @Override
+    public Items queryItemsById(Items items) {
+        return itemsMapper.queryItemsById(items);
+    }
+
+    @Override
+    public int updateItemById(Items items) {
+        int i = itemsMapper.updateItemById(items);
+        return i;
+    }
 }

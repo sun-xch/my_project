@@ -1,12 +1,14 @@
 package com.springmvc.entity;
 
+import java.math.BigDecimal;
+
 public class Items {
 
     private String id;
 
     private String name;
 
-    private String price;
+    private BigDecimal price;
 
     private String detail;
 
@@ -26,11 +28,11 @@ public class Items {
         this.name = name;
     }
 
-    public String getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
