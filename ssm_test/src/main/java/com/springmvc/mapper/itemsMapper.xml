@@ -15,10 +15,10 @@
 
 	<sql id="query_items_where">
 		<if test="id != null and id != ''">
-			and ID = #{id,jdbcType=VARCHER}
+			and ID = #{id,jdbcType=VARCHAR}
 		</if>
 		<if test="name != null and name != ''">
-			and NAME like "%"#{name,jdbcType=VARCHER}"%"
+			and NAME like "%"#{name,jdbcType=VARCHAR}"%"
 		</if>
 	</sql>
 

@@ -12,16 +12,12 @@
 <head>
     <title>itemsList.jsp</title>
     <script type="text/javascript">
+        function editItemsAllSubmit(){
+            document.itemsForm.action = "${pageContext.request.contextPath}/items/editItemsAllSubmit"
+            document.itemsForm.submit();
+        }
         function queryItems(){
             document.itemsForm.action = "${pageContext.request.contextPath}/items/queryItems"
-            document.itemsForm.submit();
-        }
-        function deleteItems(){
-            document.itemsForm.action = "${pageContext.request.contextPath}/items/deleteItems"
-            document.itemsForm.submit();
-        }
-        function editItemsQuery(){
-            document.itemsForm.action = "${pageContext.request.contextPath}/items/editItemsQuery"
             document.itemsForm.submit();
         }
     </script>
@@ -35,28 +31,23 @@
                 <td>商品名称：<input name="name"/></td>
                 <td>
                     <input type="button" value="查询" onclick="queryItems()"/>
-                    <input type="button" value="批量删除" onclick="deleteItems()"/>
-                    <input type="button" value="批量修改" onclick="editItemsQuery()"/>
+                    <input type="button" value="批量修改提交" onclick="editItemsAllSubmit()"/>
                 </td>
             </tr>
         </table>
         商品列表
         <table border="1" cellspacing="0" width="100%">
             <tr>
-                <td>选择</td>
                 <td>名称</td>
                 <td>价格</td>
                 <td>信息</td>
-                <td>操作</td>
             </tr>
 
-            <c:forEach items="${itemsList}" var="item">
+            <c:forEach items="${itemsList}" var="item" varStatus="index">
                 <tr>
-                    <td><input type="checkbox" name="items_id" value="${item.id}"/></td>
-                    <td>${item.name}</td>
-                    <td>${item.price}</td>
-                    <td>${item.detail}</td>
-                    <td><a href="${pageContext.request.contextPath}/items/queryItemsById?id=${item.id}">修改</a></td>
+                    <td><input name="itemsList[${index.index}].name" value="${item.name}"/></td>
+                    <td><input name="itemsList[${index.index}].price" value="${item.price}"/></td>
+                    <td><input name="itemsList[${index.index}].detail" value="${item.detail}"/></td>
                 </tr>
             </c:forEach>
 

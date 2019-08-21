@@ -1,5 +1,6 @@
 package com.springmvc.controller;
 
+import com.springmvc.dto.ItemsVo;
 import com.springmvc.entity.Items;
 import com.springmvc.service.ItemsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,11 +21,11 @@ public class ItemsController{
     private ItemsService itemsService;
 
     @RequestMapping(value = "/queryItems")
-    public ModelAndView queryItems(HttpServletRequest request){
+    public ModelAndView queryItems(HttpServletRequest request, Items items){
         //测试 forward 后request 是否可以共享
         System.out.println("============>" + request.getParameter("id"));
 
-        List<Items> itemsList = itemsService.queryItems(null);
+        List<Items> itemsList = itemsService.queryItems(items);
         //反回 ModelAndView
         ModelAndView modelAndView = new ModelAndView();
         //相当于request的setAttribut
@@ -61,6 +62,29 @@ public class ItemsController{
         return "forward:queryItems";
     }
 
+    @RequestMapping(value = "/deleteItems")
+    public String deleteItems(Integer[] items_id){
+        //调用service批量删除商品
+        //...
+        return "forward:queryItems";
+    }
 
+    @RequestMapping(value = "/editItemsQuery")
+    public ModelAndView editItemsQuery(HttpServletRequest request, Items items){
+        List<Items> itemsList = itemsService.queryItems(items);
+        //反回 ModelAndView
+        ModelAndView modelAndView = new ModelAndView();
+        //相当于request的setAttribut
+        modelAndView.addObject("itemsList",itemsList);
+        //指定视图
+        modelAndView.setViewName("items/editItemsQuery");
+        return modelAndView;
+    }
+
+    @RequestMapping(value = "/editItemsAllSubmit")
+    public String editItemsAllSubmit(ItemsVo itemsVo){
+
+        return "redirect:queryItems";
+    }
 
 }
