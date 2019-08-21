@@ -9,7 +9,7 @@
     <context:component-scan base-package="com.springmvc.controller"></context:component-scan>
 
     <!-- 使用 mvc:annotation-driven 代替 配置 映射器和适配器 mvc:annotation-driven默认加载很多的数据绑定方法-->
-    <mvc:annotation-driven></mvc:annotation-driven>
+    <mvc:annotation-driven validator="validator"></mvc:annotation-driven>
 
     <!-- 配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
@@ -18,24 +18,25 @@
     </bean>
 
     <!-- 校验器 -->
-    <!--<bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
-        &lt;!&ndash; hibernate 校验器 &ndash;&gt;
+    <bean id="validator" class="org.springframework.validation.beanvalidation.LocalValidatorFactoryBean">
+        <!-- hibernate 校验器 -->
         <property name="providerClass" value="org.hibernate.validator.HibernateValidator"/>
-        &lt;!&ndash; 指定校验使用的资源文件，在文件中配置校验错误信息，如果不指定则默认使用classpath下的ValidationMessages.properties &ndash;&gt;
+        <!-- 指定校验使用的资源文件，在文件中配置校验错误信息，如果不指定则默认使用classpath下的ValidationMessages.properties -->
         <property name="validationMessageSource" ref="messageSource"/>
     </bean>
-    &lt;!&ndash;  校验错误信息配置文件 &ndash;&gt;
+    <!--  校验错误信息配置文件 -->
     <bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        &lt;!&ndash; 资源名称 &ndash;&gt;
-        <property name="basename">
+        <!-- 资源名称 -->
+        <property name="basenames">
             <list>
-                <value>classpath:ValidationMessages</value>
+                <value>classpath:ItemsValidationMessages</value>
             </list>
         </property>
-        &lt;!&ndash; 资源文件编码格式 &ndash;&gt;
-        <property name="fileEncodings" value="utf-8"/>
-        &lt;!&ndash; 对资源文件内容缓存时间 单位 秒 &ndash;&gt;
+        <!-- 资源文件编码格式 -->
+        <!--<property name="defaultEncoding" value="UTF-8"/>-->
+        <property name="fileEncodings" value="UTF-8"/>
+        <!-- 对资源文件内容缓存时间 单位 秒 -->
         <property name="cacheSeconds" value="120"/>
-    </bean>-->
+    </bean>
 
 </beans>

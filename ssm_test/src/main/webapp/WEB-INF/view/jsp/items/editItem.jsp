@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: SXC
@@ -12,6 +13,13 @@
     <title>editItem.jsp</title>
 </head>
 <body>
+    <!-- 显示错误信息 -->
+    <c:if test="${allErrors != null}">
+        <c:forEach items="${allErrors}" var="error">
+            ${error.defaultMessage}<br/>
+        </c:forEach>
+    </c:if>
+
     <form id="itemForm" action="${pageContext.request.contextPath}/items/updateItemById" method="post">
         <input type="hidden" name="id" value="${item.id}">
         修改商品信息
