@@ -230,7 +230,7 @@
             <groupId>net.sf.json-lib</groupId>
             <artifactId>json-lib</artifactId>
             <version>2.1</version>
-            <classifier>jdk18</classifier>
+            <classifier>jdk15</classifier>
         </dependency>
         <!-- 请求 响应 json 数据所需jar包结束-->
 
