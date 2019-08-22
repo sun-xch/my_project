@@ -7,10 +7,11 @@
 		<result column="NAME" property="name" jdbcType="VARCHAR" />
 		<result column="PRICE" property="price" jdbcType="DECIMAL" />
 		<result column="DETAIL" property="detail" jdbcType="VARCHAR" />
+		<result column="PIC" property="pic" jdbcType="VARCHAR" />
 	</resultMap>
 
 	<sql id="Base_Column_List">
-		ID, NAME, PRICE, DETAIL
+		ID, NAME, PRICE, DETAIL, PIC
 	</sql>
 
 	<sql id="query_items_where">
@@ -49,6 +50,9 @@
 			</if>
 			<if test="detail != null and detail != ''" >
 				DETAIL = #{detail,jdbcType=VARCHAR},
+			</if>
+			<if test="pic != null and pic != ''" >
+				PIC = #{pic,jdbcType=VARCHAR},
 			</if>
 		</set>
 		where ID = #{id,jdbcType=VARCHAR}

@@ -21,6 +21,8 @@ public class Items {
 
     private String detail;
 
+    private String pic;
+
     public String getId() {
         return id;
     }
@@ -51,5 +53,13 @@ public class Items {
 
     public void setDetail(String detail) {
         this.detail = detail;
+    }
+
+    public String getPic() {
+        return pic;
+    }
+
+    public void setPic(String pic) {
+        this.pic = pic;
     }
 }

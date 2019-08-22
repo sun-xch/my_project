@@ -1,0 +1,24 @@
+package com.springmvc.exception;
+
+/**
+ * 系统自定义异常类，针对预期的异常，需要在程序中抛出此类的异常
+ */
+public class ItemsException extends Exception{
+
+    //异常信息
+    public String message;
+
+    public ItemsException(String message) {
+        super(message);
+        this.message = message;
+    }
+
+    @Override
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+}
