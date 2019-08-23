@@ -117,6 +117,8 @@ public class ItemsController{
             return "items/editItem";
         }
         //上传图片
+        //在tomcat中配置虚拟目录
+		//<Context docBase="D:\sxc\file\picture" path="/pic" reloadable="false"/>
         //图片原始名称
         String originalFilename = items_pic.getOriginalFilename();
         if(items_pic != null && originalFilename != null && originalFilename.length()>0){
