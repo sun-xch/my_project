@@ -10,6 +10,7 @@
   <modules>
     <module>ssm_test</module>
       <module>sso_test</module>
+      <module>auth_center</module>
   </modules>
   <packaging>pom</packaging>
 
