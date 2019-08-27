@@ -11,6 +11,9 @@
     <!-- 使用 mvc:annotation-driven 代替 配置 映射器和适配器 mvc:annotation-driven默认加载很多的数据绑定方法 为springmvc配置注解驱动-->
     <mvc:annotation-driven></mvc:annotation-driven>
 
+    <!-- 配置静态资源 -->
+    <mvc:resources location="/static/" mapping="/static/**"/>
+
     <!-- 配置视图解析器-->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/"/>

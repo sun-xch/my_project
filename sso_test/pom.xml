@@ -22,6 +22,8 @@
         <maven.compiler.target>1.8</maven.compiler.target>
         <!-- spring版本号 -->
         <spring.version>5.0.6.RELEASE</spring.version>
+        <!-- json版本号 -->
+        <jackson.version>2.9.8</jackson.version>
     </properties>
 
     <dependencies>
@@ -83,6 +85,8 @@
             <artifactId>spring-test</artifactId>
             <version>${spring.version}</version>
         </dependency>
+
+        <!-- springSession -->
         <!-- https://mvnrepository.com/artifact/org.springframework.session/spring-session-core -->
         <dependency>
             <groupId>org.springframework.session</groupId>
@@ -95,6 +99,58 @@
             <artifactId>spring-session-jdbc</artifactId>
             <version>2.1.4.RELEASE</version>
         </dependency>
+        <!-- springSession结束 -->
+
+        <!-- 请求 响应 json 数据所需jar包-->
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-core-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>org.codehaus.jackson</groupId>
+            <artifactId>jackson-mapper-asl</artifactId>
+            <version>1.9.13</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-annotations</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-core</artifactId>
+            <version>${jackson.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.json-lib</groupId>
+            <artifactId>json-lib</artifactId>
+            <version>2.1</version>
+            <classifier>jdk15</classifier>
+        </dependency>
+        <!-- 请求 响应 json 数据所需jar包结束-->
+
+        <!-- jwt 核心依赖-->
+        <!-- https://mvnrepository.com/artifact/com.auth0/java-jwt -->
+        <dependency>
+            <groupId>com.auth0</groupId>
+            <artifactId>java-jwt</artifactId>
+            <version>3.3.0</version>
+        </dependency>
+        <!-- java开发jwt的依赖jar包-->
+        <!-- https://mvnrepository.com/artifact/io.jsonwebtoken/jjwt -->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+            <version>0.9.0</version>
+        </dependency>
+
+
 
         <!-- 导入Mysql数据库链接jar包 -->
         <dependency>
