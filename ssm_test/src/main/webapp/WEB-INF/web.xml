@@ -21,8 +21,21 @@
       <param-value>utf-8</param-value>
     </init-param>
   </filter>
+
+  <!-- 单点登录过滤器  到统一认证中心-->
+  <filter>
+    <filter-name>ssoFilter</filter-name>
+    <filter-class>com.springmvc.filter.SSOFilter</filter-class>
+  </filter>
+
+
   <filter-mapping>
     <filter-name>CharacterEncodingFilter</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+
+  <filter-mapping>
+    <filter-name>ssoFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
 

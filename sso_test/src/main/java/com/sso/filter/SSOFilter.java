@@ -1,6 +1,7 @@
 package com.sso.filter;
 
-import com.sso.commons.utils.SSOUtils;
+import com.sso.commons.SSOUtils;
+import org.apache.commons.lang.StringUtils;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -25,6 +26,17 @@ public class SSOFilter implements Filter {
             //有局部会话，直接放行
             filterChain.doFilter(request,response);
             return;
+        }
+        //判断 是否有token信息
+        String token = request.getParameter("token");
+        if(StringUtils.isNotBlank(token)){
+            //判断token 是否由统一认证中心生成的
+            if("1234567890".equals(token)){
+                //如果token正确 创建局部会话
+                session.setAttribute("isLogin", true);
+                filterChain.doFilter(request,response);
+                return;
+            }
         }
         //没有局部会话，重定向到统一认证中心，检查是否有其他的系统已经登录过
         SSOUtils.redirectToSSOURL(request, response);

@@ -2,7 +2,7 @@
 <%@ page isELIgnored="false" %>
 <html>
 <head>
-    <title>jsonTest.jsp</title>
+    <title>index.jsp</title>
     <script type="text/javascript" src="${pageContext.request.contextPath}/static/js/jquery-3.4.1.min.js"></script>
     <script type="text/javascript">
         function login() {

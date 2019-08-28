@@ -1,6 +1,6 @@
 package com.sso.controller;
 
-import com.sso.commons.utils.CookieUtils;
+import com.sso.commons.CookieUtils;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 

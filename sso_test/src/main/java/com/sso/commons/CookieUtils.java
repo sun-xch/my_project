@@ -1,4 +1,4 @@
-package com.sso.commons.utils;
+package com.sso.commons;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
