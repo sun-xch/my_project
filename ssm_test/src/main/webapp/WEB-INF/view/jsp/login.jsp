@@ -12,7 +12,7 @@
     <title>login.jsp</title>
 </head>
 <body>
-
+    <p>ssm_test 自己的登录</p>
     <form action="${pageContext.request.contextPath}/login" method="post">
         用户账号：<input type="text" name="username"/><br/>
         用户密码：<input type="password" name="password"/><br/>

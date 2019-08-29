@@ -49,7 +49,8 @@
     </script>
 </head>
 <body>
-<h2>Hello World!</h2>
+
+    <p>sso_test自己的登录 此登录是jwt认证的方式</p>
 
     <table>
         <caption>登录测试</caption>

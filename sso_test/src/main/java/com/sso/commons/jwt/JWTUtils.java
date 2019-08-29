@@ -73,6 +73,8 @@ public class JWTUtils {
      * @return
      */
     public static JWTResult validateJWT(String jwtstr){
+        //缺少对比 token正确性
+        //在此应该与 Redis 或 数据库中 token对比认证
         JWTResult checkResult = new JWTResult();
         Claims claims = null;
         try{
