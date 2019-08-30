@@ -1,11 +1,6 @@
 package com.springmvc.commons;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
+import java.awt.*;
 import java.awt.print.*;
 
 import javax.swing.ImageIcon;
@@ -43,19 +38,16 @@ public class PrintTest implements Printable {
                 graphics2D.drawString(r3, (float) 10, 50); // 第三排
 
 
-                Image image = new ImageIcon(PrintTest.class.getResource("D:\\picture\\13639685_123501617185_2.jpg")).getImage();
+                //Image image = new ImageIcon(PrintTest.class.getResource("D:\\store\\store\\20190809\\09\\FA\\FA0CFEDD03414B0A9B8F78C609527A27.jpg")).getImage();
+                Image src = Toolkit.getDefaultToolkit().getImage("D:\\store\\store\\20190809\\09\\FA\\FA0CFEDD03414B0A9B8F78C609527A27.jpg");
 
-                graphics2D.drawImage(image, 200, 200, component);
+                graphics2D.drawImage(src, 200, 200, component);
 
                 return PAGE_EXISTS;
             default:
                 return NO_SUCH_PAGE;
         }
     }
-}
-
-
-class Print {
 
     public static void main(String[] args) {
         Book book = new Book();

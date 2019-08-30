@@ -7,6 +7,12 @@ import java.awt.print.PrinterException;
 import java.awt.print.PrinterJob;
 
 public class PrintUtils implements Printable {
+    private String url;
+
+    public PrintUtils(String url) {
+        this.url = url;
+    }
+
     @Override
     public int print(Graphics gra, PageFormat pf, int pageIndex) throws PrinterException {
         System.out.println("pageIndex="+pageIndex);
@@ -46,7 +52,7 @@ public class PrintUtils implements Printable {
                 //首字符的基线(右下部)位于用户空间中的 (x, y) 位置处
                 //g2.drawLine(10,10,200,300);
 
-                Image src = Toolkit.getDefaultToolkit().getImage("D:\\picture\\13639685_123501617185_2.jpg");
+                Image src = Toolkit.getDefaultToolkit().getImage(url);
                 g2.drawImage(src,(int)x,(int)y,c);
                 int img_Height=src.getHeight(c);
                 int img_width=src.getWidth(c);
@@ -68,7 +74,7 @@ public class PrintUtils implements Printable {
     public static void main(String[] args) {
         //获取打印服务对象
         PrinterJob job = PrinterJob.getPrinterJob();
-        job.setPrintable(new PrintUtils());//设置打印类
+        job.setPrintable(new PrintUtils("D:\\store\\store\\20190809\\09\\FA\\FA0CFEDD03414B0A9B8F78C609527A27.jpg"));//设置打印类
         try {
             //可以用printDialog显示打印对话框，在用户确认后打印；也可以直接打印
             boolean a=job.printDialog();
