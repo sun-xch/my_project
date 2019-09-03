@@ -1,4 +1,4 @@
-package com.springmvc.test;
+package com.springmvc.commons.print;
 
 import java.awt.*;
 

@@ -1,13 +1,8 @@
-package com.springmvc.test;
+package com.springmvc.commons.print;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.print.Book;
-import java.awt.print.PageFormat;
-import java.awt.print.Paper;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import java.awt.print.*;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -16,15 +11,15 @@ import java.util.List;
 
 /**
  *         
- *  *  通用热敏打印机类
+ *  *  通用热敏打印机类 带分页  可多页打印
  *  
  */
-public class Prient1 implements Printable {
+public class PrientOfPage implements Printable {
 
     //打印内容
     private List<PrintModel> printModelList;
 
-    public Prient1(List<PrintModel> printModelList) {
+    public PrientOfPage(List<PrintModel> printModelList) {
         this.printModelList = printModelList;
     }
 
@@ -76,7 +71,7 @@ public class Prient1 implements Printable {
         pf.setPaper(p);
         // 把 PageFormat 和 Printable 添加到书中，组成一个页面  
         //book.append(new Prient1(this.printModelList), pf);
-        book.append(new Prient1(this.printModelList), pf, this.printModelList.size());
+        book.append(new PrientOfPage(this.printModelList), pf, this.printModelList.size());
         // 获取打印服务对象  
         PrinterJob job = PrinterJob.getPrinterJob();
         job.setPageable(book);
@@ -110,7 +105,7 @@ public class Prient1 implements Printable {
             List<PrintModel> list = new ArrayList<PrintModel>();
             list.add(aa);
             list.add(bb);
-            Prient1 p = new Prient1(list);
+            PrientOfPage p = new PrientOfPage(list);
 
             p.commonPrint(113, 85);
         } catch (Exception e1) {

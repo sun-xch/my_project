@@ -1,12 +1,7 @@
-package com.springmvc.test;
+package com.springmvc.commons.print;
 
 import java.awt.*;
-import java.awt.print.Book;
-import java.awt.print.PageFormat;
-import java.awt.print.Paper;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
-import java.awt.print.PrinterJob;
+import java.awt.print.*;
 
 
 /**
