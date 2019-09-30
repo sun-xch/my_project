@@ -41,6 +41,12 @@
                 }
             });
         }
+
+        function test(){
+            var urlObject = window.URL || window.webkitURL || window;
+            var export_blob = new Blob([123456778]);
+            window.open(URL.createObjectURL(export_blob))
+        }
     </script>
 </head>
 <body>
@@ -48,5 +54,7 @@
     <input type="button" onclick="requestJson()" value="请求的是json 输出的是json"/>
 
     <input type="button" onclick="responseJson()" value="请求的是key/value 输出的是json"/>
+
+    <button onclick="test()">测试</button>
 </body>
 </html>
