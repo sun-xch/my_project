@@ -11,6 +11,7 @@
     <module>ssm_test</module>
       <module>sso_test</module>
       <module>auth_center</module>
+      <module>basic_notes</module>
   </modules>
   <packaging>pom</packaging>
 
